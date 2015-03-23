@@ -1,0 +1,14 @@
+#newPriceModal.modal.fade aria-hidden="true" aria-labelledby="newPriceModalLabel" role="dialog" tabindex="-1" 
+	.modal-dialog.modal-lg
+		.modal-content
+			.modal-header
+				button.close aria-hidden="true" data-dismiss="modal" type="button"  ×
+				h4#newPriceModalLabel.modal-title Новая подкатегория
+			= form_for(@price, remote: true) do |f|
+				.modal-body
+					= f.text_field :title, class: "form-control"
+					= f.text_area :description, class: "format-control"
+					= f.file_field :image, class: "form-control"
+					= f.collection_select(:subcategory_id, Subcategory.all, :id, :title, {:selected => @id},class: "form-control")
+					= submit_tag "Подтвердить", class: "btn btn-primary pull-left", :disable_with => "Пожалуйста подождите.." 
+					button.btn.btn-ar.btn-default data-dismiss="modal" type="button"  Закрыть

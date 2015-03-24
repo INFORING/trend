@@ -8,6 +8,8 @@
         h4.panel-title
           a aria-controls="categoryCollapse#{category.id}" aria-expanded="false" data-parent="#accordion" data-toggle="collapse" href="#categoryCollapse#{category.id}"  
             = category.title
+            = link_to edit_category_path(category), remote: true do
+              i.fa.fa-pencil
       .panel-collapse.collapse id = "categoryCollapse#{category.id}" aria-labelledby="categoryHeading#{category.id}" role="tabpanel" 
         .panel-body
           .panel.panel-default
@@ -19,10 +21,14 @@
                 panel-heading id = "subcategoryHeading#{subcategory.id}" role="tab" 
                   h4.panel-title
                     a aria-controls="subcategoryCollapse#{subcategory.id}" aria-expanded="false" data-parent="#accordion#{category.id}" data-toggle="collapse" href="#subcategoryCollapse#{subcategory.id}"  
-                      | Подкатегория
+                      = subcategory.title
+                      = link_to edit_subcategory_path(subcategory), remote: true do
+                        i.fa.fa-pencil
                 .panel-collapse.collapse id = "subcategoryCollapse#{subcategory.id}" aria-labelledby="subcategoryHeading#{subcategory.id}" role="tabpanel" 
                   .panel-body
                     = link_to "Новый прайс", new_price_path(subcategory_id: subcategory.id), remote: true
                     - subcategory.prices.each do |price|
                       = price.title
+                      = link_to edit_price_path(price), remote: true do
+                        i.fa.fa-pencil
   

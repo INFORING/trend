@@ -26,6 +26,7 @@ class CategoriesController < ApplicationController
 	def update
 		@category = Category.find(params[:id])
 		if @category.update_attributes(category_params)
+			@categories = Category.all
 			respond_to do |format|
 				format.js
 			end

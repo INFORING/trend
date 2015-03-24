@@ -27,6 +27,7 @@ class PricesController < ApplicationController
 	def update
 		@price = Price.find(params[:id])
 		if @price.update_attributes(price_params)
+			@categories = Category.all
 			respond_to do |format|
 				format.js
 			end

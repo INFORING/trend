@@ -27,6 +27,7 @@ class SubcategoriesController < ApplicationController
 	def update
 		@subcategory = Subcategory.find(params[:id])
 		if @subcategory.update_attributes(subcategory_params)
+			@categories = Category.all
 			respond_to do |format|
 				format.js
 			end

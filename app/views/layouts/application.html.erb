@@ -7,8 +7,12 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<div class = "col-md-3">
+<%= render 'pages/navigation', locals: {:@categories => @categories} %>
+</div>
+<div class = "col-md-9">
 <%= yield %>
+</div>
 
 </body>
 </html>

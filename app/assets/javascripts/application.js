@@ -15,4 +15,5 @@
 //= require turbolinks
 //= require bootstrap
 //= require jquery.remotipart
+//= require jquery_nested_form
 //= require_tree .

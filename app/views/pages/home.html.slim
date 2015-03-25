@@ -1,5 +1,4 @@
-.col-md-3#navigation
-	  = render 'pages/navigation'
-.col-md-9#catalog
-	= render 'categories/index'
-#adminModal  
+- @categories.each do |category|
+	= category.title
+	p
+#adminModal

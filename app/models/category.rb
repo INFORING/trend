@@ -1,7 +1,7 @@
 class Category < ActiveRecord::Base
 	validates :title,  presence: true
 
-	has_many :subcategories
+	has_many :subcategories, dependent: :destroy
 	belongs_to :section
 
 	has_attached_file :image, :styles => { :large => "600x600!", :medium => "300x300!", :thumb => "100x100!" }, :default_url => "logo.png"

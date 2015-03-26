@@ -7,12 +7,15 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div class = "col-md-3">
-<%= render 'pages/navigation', locals: {:@categories => @categories} %>
+<div id = "sections">
+<%= render 'layouts/header', locals: {:@sections => :@sections} %>
+</div>
+<div class = "col-md-3" id = "navigation">
+<%= render 'pages/navigation', locals: {:@section => @section} %>
 </div>
 <div class = "col-md-9">
 <%= yield %>
+<div id = "adminModal"></div>
 </div>
-
 </body>
 </html>

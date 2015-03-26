@@ -10,11 +10,16 @@ class SubcategoriesController < ApplicationController
 	def create
 		@subcategory = Subcategory.new(subcategory_params)
 		if @subcategory.save
-			@categories = Category.all
+			@section = @subcategory.category.section
 			respond_to do |format|
 				format.js
 			end
 		end
+	end
+
+	def show
+		@subcategory = Subcategory.find(params[:id])
+		@section = @subcategory.category.section
 	end
 
 	def edit
@@ -27,7 +32,7 @@ class SubcategoriesController < ApplicationController
 	def update
 		@subcategory = Subcategory.find(params[:id])
 		if @subcategory.update_attributes(subcategory_params)
-			@categories = Category.all
+			@section = @subcategory.category.section
 			respond_to do |format|
 				format.js
 			end
@@ -36,7 +41,9 @@ class SubcategoriesController < ApplicationController
 
 	def destroy
 		@subcategory = Subcategory.find(params[:id])
+		@section = @subcategory.category.section
 		@subcategory.destroy
+		respond_to :js
 	end
 
 	private

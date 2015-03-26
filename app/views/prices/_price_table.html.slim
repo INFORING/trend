@@ -1,20 +1,16 @@
-table.table
-	thead
-		tr
-			- @price.headers.each do |h|
-				th
-					= h.title
-	tbody
-		= form_tag create_price_row_path, method: :post,remote: true do 
-			tr
-				- @price.headers.each do |h|
-					td
-						= text_field_tag "headers[#{h.id}]",nil, class: "form-control"
-				td
-					= submit_tag "+"
-			- @price.headers.each do |h|
-				- h.rows.each do |r|
-					tr
-						td
-							= r.value
+.pull-left	
+	= link_to price_new_column_path(@price), remote: true do
+		i.fa.fa-plus
+	p
+	= link_to price_new_row_path(@price), remote: true do
+		i.fa.fa-plus
+- @price.headers.each do |header|
+	ul
+		= link_to price_column_path(@price,header), method: :delete, remote: true do
+			i.fa.fa-remove
+		= header.title
+		- header.rows.each do |row|
+			li
+				= row.value
+
 

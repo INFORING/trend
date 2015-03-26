@@ -1,0 +1,2 @@
+$('#adminModal').html("<%= escape_javascript(render partial: 'prices/new_row_modal', locals: { :@price => @price}) %>");
+$('#newPriceRowModal').modal('show');

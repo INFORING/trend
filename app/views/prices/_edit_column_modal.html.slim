@@ -1,0 +1,13 @@
+#editPriceColumnModal.modal.fade aria-hidden="true" aria-labelledby="editPriceColumnModalLabel" role="dialog" tabindex="-1" 
+	.modal-dialog.modal-lg
+		.modal-content
+			.modal-header
+				button.close aria-hidden="true" data-dismiss="modal" type="button"  ×
+				h4#editPriceColumnModalLabel.modal-title Новая подкатегория
+			= form_tag price_column_path(@header.price, @header), method: :put, remote: true do
+				.modal-body
+					= text_field_tag :title, nil, class: "form-control"
+					- @header.rows.each do |row|
+						= text_field_tag "rows[#{row.id}]", nil, class: "form-control"
+					= submit_tag "Подтвердить", class: "btn btn-primary pull-left", :disable_with => "Пожалуйста подождите.." 
+					button.btn.btn-ar.btn-default data-dismiss="modal" type="button"  Закрыть

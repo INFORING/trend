@@ -1,41 +1,40 @@
 class CategoriesController < ApplicationController
 	def new
 		@category = Category.new
-		respond_to do |format|
-			format.js
-		end
+		@section = Section.find(params[:section_id])
+		respond_to :js
 	end
 
 	def create
-		@category = Category.new(category_params)
-		if @category.save
+		@section = Section.find(params[:section_id])
+		if @section.categories.create(category_params)
 			@categories = Category.all
-			respond_to do |format|
-				format.js
-			end
+			respond_to :js
 		end
+	end
+
+	def show
+		@category = Category.find(params[:id])
+		@section = Section.find(params[:section_id])
 	end
 
 	def edit
 		@category = Category.find(params[:id])
-		respond_to do |format|
-			format.js
-		end
+		@section = Section.find(params[:section_id])
+		respond_to :js
 	end
 
 	def update
-		@category = Category.find(params[:id])
-		if @category.update_attributes(category_params)
+		if Category.find(params[:id]).update_attributes(category_params)
 			@categories = Category.all
-			respond_to do |format|
-				format.js
-			end
+			respond_to :js
 		end
 	end
 
 	def destroy
-		@category = Category.find(params[:id])
-		@category.destroy
+		@category = Category.find(params[:id]).destroy
+		@section = @category.section
+		respond_to :js
 	end
 
 	private

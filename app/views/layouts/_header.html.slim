@@ -1,0 +1,5 @@
+- @sections.each do |section|
+	= link_to section_path(section)
+		= section.title
+= link_to new_section_path, remote: true do
+	i.fa.fa-plus

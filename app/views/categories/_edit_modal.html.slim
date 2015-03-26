@@ -4,7 +4,7 @@
 			.modal-header
 				button.close aria-hidden="true" data-dismiss="modal" type="button"  ×
 				h4#editCategoryModalLabel.modal-title Редактировать категорию
-			= form_for(@category, remote: true) do |f|
+			= form_for([@section,@category], remote: true) do |f|
 				.modal-body
 					= f.text_field :title, class: "form-control"
 					= f.file_field :image, class: "form-control"

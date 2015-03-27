@@ -1,0 +1,11 @@
+#editSectionModal.modal.fade aria-hidden="true" aria-labelledby="editSectionModalLabel" role="dialog" tabindex="-1" 
+	.modal-dialog.modal-lg
+		.modal-content
+			.modal-header
+				button.close aria-hidden="true" data-dismiss="modal" type="button"  ×
+				h4#editSectionModalLabel.modal-title Новая категория
+			= form_for(@section, remote: true) do |f|
+				.modal-body
+					= f.text_field :title, class: "form-control"
+					= submit_tag "Подтвердить", class: "btn btn-primary pull-left", :disable_with => "Пожалуйста подождите.." 
+					button.btn.btn-ar.btn-default data-dismiss="modal" type="button"  Закрыть

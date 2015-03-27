@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 	resources :prices do 
 	  get '/rows/new', to: 'prices#new_row', as: :new_row
   	post '/rows', to: 'prices#create_row', as: :rows
-  	delete 'rows/:id', to: 'prices#destroy_row', as: :row
+  	delete 'rows/:count', to: 'prices#destroy_row', as: :row
   	get '/columns/new', to: 'prices#new_column', as: :new_column
   	get '/column/:id/edit', to: 'prices#edit_column', as: :edit_column
   	post '/columns/', to: 'prices#create_column', as: :columns

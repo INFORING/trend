@@ -1,9 +1,11 @@
 class Price < ActiveRecord::Base
+
 	validates :title,  presence: true
 	validates :description,  presence: true
 
 	belongs_to :subcategory
 	has_many :headers, dependent: :destroy
+	has_many :rows, through: :headers
 
 	accepts_nested_attributes_for :headers, :allow_destroy => true 
 

@@ -22,7 +22,7 @@ class SectionsController < ApplicationController
 
 	def update
 		if Section.find(params[:id]).update_attributes(section_params)
-			@section = Section.al
+			@section = Section.all
     	respond_to :js
 		end
 	end

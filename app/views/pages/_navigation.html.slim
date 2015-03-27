@@ -32,7 +32,8 @@
                   .panel-body
                     = link_to "Новый прайс", new_price_path(subcategory_id: subcategory.id), remote: true
                     - subcategory.prices.each do |price|
-                      = price.title
+                      = link_to price_path(price) do  
+                        = price.title
                       = link_to edit_price_path(price), remote: true do
                         i.fa.fa-pencil
                       = link_to price_path(price),method: :delete, remote: true do

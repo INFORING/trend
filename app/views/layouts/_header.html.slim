@@ -1,5 +1,10 @@
 - @sections.each do |section|
 	= link_to section_path(section)
 		= section.title
+	= link_to edit_section_path(section), remote: true do
+		i.fa.fa-pencil
+	= link_to section_path(section),method: :delete, remote: true do
+		i.fa.fa-remove
+	|      
 = link_to new_section_path, remote: true do
 	i.fa.fa-plus

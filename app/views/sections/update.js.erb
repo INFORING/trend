@@ -1,0 +1,4 @@
+$('#editSectionModal').modal('hide');
+$('body').removeClass('modal-open');
+$('.modal-backdrop').remove();
+$('#sections').html("<%= escape_javascript(render partial: 'layouts/header', locals: {:@sections => @sections}) %>");

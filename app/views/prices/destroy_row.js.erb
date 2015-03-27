@@ -1,4 +1,1 @@
-$('#editPriceColumnModal').modal('hide');
-$('body').removeClass('modal-open');
-$('.modal-backdrop').remove();
 $('#priceTable').html("<%= escape_javascript(render partial: 'prices/price_table', locals: {:@price => @price}) %>");

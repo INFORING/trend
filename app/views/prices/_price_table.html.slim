@@ -4,10 +4,17 @@
 	p
 	= link_to price_new_row_path(@price), remote: true do
 		i.fa.fa-plus
+	p
+	- @price.rows_count.times do |count|
+		= link_to price_row_path(@price,count + 1), method: :delete, remote: true do
+			i.fa.fa-remove 
+		p
 - @price.headers.each do |header|
 	ul
 		= link_to price_column_path(@price,header), method: :delete, remote: true do
 			i.fa.fa-remove
+		= link_to price_edit_column_path(@price,header), remote: true do
+			i.fa.fa-pencil
 		= header.title
 		- header.rows.each do |row|
 			li

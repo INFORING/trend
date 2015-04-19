@@ -1,4 +1,4 @@
-#accordion.panel-group aria-multiselectable="true" role="tablist" 
+#navigation.panel-group aria-multiselectable="true" role="tablist" 
   .panel.panel-default
     h4.panel-title
       = link_to "Новая категория", new_section_category_path(@section), remote: true 
@@ -31,11 +31,13 @@
                 .panel-collapse.collapse id = "subcategoryCollapse#{subcategory.id}" aria-labelledby="subcategoryHeading#{subcategory.id}" role="tabpanel" 
                   .panel-body
                     = link_to "Новый прайс", new_price_path(subcategory_id: subcategory.id), remote: true
-                    - subcategory.prices.each do |price|
-                      = link_to price_path(price) do  
-                        = price.title
-                      = link_to edit_price_path(price), remote: true do
-                        i.fa.fa-pencil
-                      = link_to price_path(price),method: :delete, remote: true do
-                        i.fa.fa-remove
+                    ul
+                      - subcategory.prices.each do |price|
+                        li
+                          = link_to price_path(price) do  
+                            = price.title
+                          = link_to edit_price_path(price), remote: true do
+                            i.fa.fa-pencil
+                          = link_to price_path(price),method: :delete, remote: true do
+                            i.fa.fa-remove
   

@@ -17,4 +17,6 @@ Rails.application.routes.draw do
   	put '/column/:id', to: 'prices#update_column', as: :column
   	delete '/column/:id', to: 'prices#destroy_column'
   end
+
+  match '/contact', to: 'pages#contact', via: 'get'
 end

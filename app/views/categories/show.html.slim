@@ -1,3 +1,10 @@
-- @category.subcategories.each do |subcategory|
-	= link_to subcategory_path(subcategory) do
-		= subcategory.title
+#grid
+	.col-md-9
+		- @category.subcategories.each do |subcategory|
+		  .col-sm-3
+		    .item-img-wrap
+		      = image_tag subcategory.image.url(:medium), class: "img-responsive"
+		    .work-desc
+		      h3
+		        = link_to subcategory_path(subcategory) do
+					= subcategory.title

@@ -1,10 +1,60 @@
-- @sections.each do |section|
-	= link_to section_path(section)
-		= section.title
-	= link_to edit_section_path(section), remote: true do
-		i.fa.fa-pencil
-	= link_to section_path(section),method: :delete, remote: true do
-		i.fa.fa-remove
-	|      
-= link_to new_section_path, remote: true do
-	i.fa.fa-plus
+#header.hidden-xs
+	.container
+		.top
+			.pull-left.sample-1right
+				a
+					i.fa.fa-phone
+					| Есть вопрос? Звоните:
+					span.colored-text  +7 911 111 11 11
+				a
+					i.fa.fa-envelope
+					| E-mail:
+					span.colored-text  support@trend-msk.ru
+			.pull-right
+				ul.list-inline.social
+					li Подпишитесь:
+					li
+						a href="#" 
+							i.fa.fa-facebook
+					li
+						a href="#" 
+							i.fa.fa-twitter
+					li
+						a href="#" 
+							i.fa.fa-google-plus
+					li
+						a href="#" 
+							i.fa.fa-linkedin
+					li
+						a href="#" 
+							i.fa.fa-pinterest
+
+.navbar.navbar-default.navbar-static-top.yamm.sticky role="navigation" 
+	.container
+		.navbar-header
+			button.navbar-toggle data-target=".navbar-collapse" data-toggle="collapse" type="button" 
+				span.sr-only Toggle navigation
+				span.icon-bar
+				span.icon-bar
+				span.icon-bar
+			= link_to "ТРЕНД", root_path, class: "navbar-brand"
+		.navbar-collapse.collapse
+			ul.nav.navbar-nav.navbar-right
+				- @sections.each do |section|
+					li
+						= link_to section_path(section)
+							= section.title
+						/= link_to edit_section_path(section), remote: true do
+							i.fa.fa-pencil
+						/= link_to section_path(section),method: :delete, remote: true do
+							i.fa.fa-remove
+				li
+					= link_to new_section_path, remote: true do
+						i.fa.fa-plus
+				li
+					= link_to 'Контакты', contact_path
+				li
+					a href="#" 
+						| Заказать!
+
+					

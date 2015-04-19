@@ -1,0 +1,91 @@
+.container
+  .row
+    .col-md-8.margin30
+      h3.heading Связаться с нами
+      p
+        | Текст текст текст
+      .divide30
+      .form-contact
+        .required
+          p
+            | (
+            span *
+            | Поля обязательные для заполнения )
+        form#contactForm method="post" name="sentMessage" novalidate="" 
+          .row
+            .col-md-6
+              .row.control-group
+                .form-group.col-xs-12.controls
+                  label
+                    | Имя
+                    span *
+                  input#name.form-control data-validation-required-message=("Введите свое имя") placeholder="Введите свое имя" required="" type="text" /
+                  p.help-block
+            .col-md-6
+              .row.control-group
+                .form-group.col-xs-12.controls
+                  label
+                    | E-mail
+                    span *
+                  input#email.form-control data-validation-required-message=("Введите свой E-mail") placeholder=("Введите свой E-mail") required="" type="email" /
+                  p.help-block
+          .row.control-group
+            .form-group.col-xs-12.controls
+              label
+                | Телефон
+                span *
+              input#phone.form-control data-validation-required-message=("Введите свой номер телефона") placeholder=("Введите свой номер телефона") required="" type="tel" /
+              p.help-block
+          .row.control-group
+            .form-group.col-xs-12.controls
+              label
+                | Сообщение
+                span *
+              textarea#message.form-control data-validation-required-message=("Please enter a message.") placeholder="Введите сообщение" required="" rows="5" 
+              p.help-block
+          br/
+          #success
+          .row
+            .form-group.col-xs-12
+              button.btn.btn-theme-bg.btn-lg type="submit"  Отправить
+      /! contact form
+    .col-md-4
+      h3.heading Контактная информация
+      ul.list-unstyled.contact.contact-info
+        li
+          p
+            strong
+              i.fa.fa-map-marker
+              | Адрес:
+            | Москва, ул. Льва Толстого д.120
+        li
+          p
+            strong
+              i.fa.fa-envelope
+              | E-mail:
+            a href="#"  support@trend-msk.ru
+        li
+          p
+            strong
+              i.fa.fa-phone
+              | Телефон:
+            | +7 911 111 11 11
+      .divide40
+      h4 Социальные сети
+      ul.list-inline.social-1
+        li
+          a href="#" 
+            i.fa.fa-facebook
+        li
+          a href="#" 
+            i.fa.fa-twitter
+        li
+          a href="#" 
+            i.fa.fa-google-plus
+        li
+          a href="#" 
+            i.fa.fa-pinterest
+        li
+          a href="#" 
+            i.fa.fa-dribbble
+

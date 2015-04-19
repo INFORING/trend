@@ -1,3 +1,10 @@
-- @section.categories.each do |category|
-	= link_to section_category_path(@section,category)
-		= category.title
+#grid
+	.col-md-9
+		- @section.categories.each do |category|
+		  .col-sm-3
+		    .item-img-wrap
+		      = image_tag category.image.url(:medium), class: "img-responsive"
+		    .work-desc
+		      h3
+		        = link_to section_category_path(@section,category)
+							= category.title

@@ -15,4 +15,16 @@ class Price < ActiveRecord::Base
 	def rows_count
 		self.headers.any? ? self.headers.first.rows.count : 0
 	end
+
+	def get_rows
+		a = []
+		self.rows_count.times do | count |
+			b = []
+			self.rows.where(row_count: count + 1).each do | header |
+				b << header
+			end	
+			a << b	
+		end
+		a
+	end
 end

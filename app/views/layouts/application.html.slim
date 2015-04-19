@@ -1,0 +1,19 @@
+doctype html
+html
+  head
+    title Catalog
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true 
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags 
+  body
+    #sections
+      = render 'layouts/header', locals: {:@sections => :@sections} 
+    - unless controller.controller_name == "pages" 
+	    #navigation.col-md-3
+	      = render 'pages/navigation', locals: {:@section => @section}
+	#main
+    = yield
+    #adminModal
+  = render 'layouts/footer', locals: {:@sections => :@sections} 
+
+

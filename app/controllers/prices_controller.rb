@@ -1,4 +1,5 @@
 class PricesController < ApplicationController
+	before_action :admin_user, except: [:show]
 	after_action :refresh_row_counts, only: [:destroy_row]
 
 	def new

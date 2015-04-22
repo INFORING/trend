@@ -1,0 +1,6 @@
+= form_tag send_order_path, method: :post do
+	= text_field_tag :name, "", placeholder: "Имя", class: "form-control"
+	= text_field_tag :email, "", placeholder: "E-mail", class: "form-control"
+	= text_field_tag :phone, "", placeholder: "Телефон", class: "form-control"
+	= text_area_tag :text, "", placeholder: "Сообщение", class: "form-control"
+	= submit_tag "Отправить", class: "btn btn-primary"

@@ -1,0 +1,4 @@
+h1 Войти как администратор
+= form_tag admin_session_create_path, method: :post do
+	= text_field_tag :pass, "", placeholder: "Введите пароль", class: "form-control"
+	= submit_tag "Войти", class: "btn btn-primary"

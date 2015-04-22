@@ -44,17 +44,22 @@
 					li
 						= link_to section_path(section)
 							= section.title
-						/= link_to edit_section_path(section), remote: true do
-							i.fa.fa-pencil
-						/= link_to section_path(section),method: :delete, remote: true do
-							i.fa.fa-remove
+						- if is_admin?
+							/= link_to edit_section_path(section), remote: true do
+								i.fa.fa-pencil
+							/= link_to section_path(section),method: :delete, remote: true do
+								i.fa.fa-remove
 				li
-					= link_to new_section_path, remote: true do
-						i.fa.fa-plus
+					- if is_admin?
+						= link_to new_section_path, remote: true do
+							i.fa.fa-plus
 				li
 					= link_to 'Контакты', contact_path
 				li
 					a href="#" 
 						| Заказать!
+				li 
+					- if is_admin?
+						= link_to "Выйти", admin_signout_path, method: :delete
 
 					

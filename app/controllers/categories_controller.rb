@@ -1,4 +1,6 @@
 class CategoriesController < ApplicationController
+	before_action :admin_user, except: [:show]
+
 	def new
 		@category = Category.new
 		@section = Section.find(params[:section_id])

@@ -55,11 +55,11 @@ footer#footer
           h3 Свяжись с нами
           p
             | Есть вопросы? Оставь свой E-mail и мы свяжемся с тобой.
-          form.subscribe-form role="form" 
+          = form_tag feedback_path, method: :post, class: 'subscribe-form' do
             .input-group
-              input.form-control placeholder=("Введи свой E-mail") type="text" /
+              = text_field_tag :email, "", placeholder: "Введите ваш E-mail", class: 'form-control'
               span.input-group-btn
-                button.btn.btn-theme-dark.btn-lg type="submit"  Ok
+                = submit_tag "Ok", class: 'btn btn-theme-dark btn-lg'
     .row
       .col-md-12.text-center
         .footer-btm

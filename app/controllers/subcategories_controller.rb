@@ -1,19 +1,17 @@
 class SubcategoriesController < ApplicationController
+	before_action :admin_user, except: [:show]
+	
 	def new
 		@subcategory = Subcategory.new
 		@id = params[:category_id].to_i
-		respond_to do |format|
-			format.js
-		end
+		respond_to :js
 	end
 
 	def create
 		@subcategory = Subcategory.new(subcategory_params)
 		if @subcategory.save
 			@section = @subcategory.category.section
-			respond_to do |format|
-				format.js
-			end
+			respond_to :js
 		end
 	end
 
@@ -24,18 +22,14 @@ class SubcategoriesController < ApplicationController
 
 	def edit
 		@subcategory = Subcategory.find(params[:id])
-		respond_to do |format|
-			format.js
-		end
+		respond_to :js
 	end
 
 	def update
 		@subcategory = Subcategory.find(params[:id])
 		if @subcategory.update_attributes(subcategory_params)
 			@section = @subcategory.category.section
-			respond_to do |format|
-				format.js
-			end
+			respond_to :js
 		end
 	end
 

@@ -1,4 +1,6 @@
 class SectionsController < ApplicationController
+	before_action :admin_user, except: [:show]
+
 	def new
 		@section = Section.new
 		respond_to :js

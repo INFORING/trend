@@ -1,21 +1,23 @@
 .col-md-8
-	p
-		= link_to 'Добавить столбик', price_new_column_path(@price), remote: true
-	p
-		= link_to 'Добавить строку', price_new_row_path(@price), remote: true
-	- @price.rows_count.times do |count|
-		= link_to price_row_path(@price,count + 1), method: :delete, remote: true do
-			i.fa.fa-remove 
+	- if is_admin?
+		p
+			= link_to 'Добавить столбик', price_new_column_path(@price), remote: true
+		p
+			= link_to 'Добавить строку', price_new_row_path(@price), remote: true
+		- @price.rows_count.times do |count|
+			= link_to price_row_path(@price,count + 1), method: :delete, remote: true do
+				i.fa.fa-remove 
 	table.table
 		thead
 			tr
 				- @price.headers.each do |header|
 					th 
 						= header.title
-						= link_to price_edit_column_path(@price,header), remote: true do
-							i.fa.fa-pencil
-						= link_to price_column_path(@price,header), method: :delete, remote: true do
-							i.fa.fa-remove
+						- if is_admin?
+							= link_to price_edit_column_path(@price,header), remote: true do
+								i.fa.fa-pencil
+							= link_to price_column_path(@price,header), method: :delete, remote: true do
+								i.fa.fa-remove
 		tbody
 			- @price.get_rows.each do | row |
 				tr

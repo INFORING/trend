@@ -11,7 +11,7 @@
             | (
             span *
             | Поля обязательные для заполнения )
-        form#contactForm method="post" name="sentMessage" novalidate="" 
+        = form_tag feedback_path, method: :post, id: "contactForm"  
           .row
             .col-md-6
               .row.control-group
@@ -19,7 +19,7 @@
                   label
                     | Имя
                     span *
-                  input#name.form-control data-validation-required-message=("Введите свое имя") placeholder="Введите свое имя" required="" type="text" /
+                  = text_field_tag :name, "", placeholder: "Введите свое имя", class: "form-control", required: "", type: "text"
                   p.help-block
             .col-md-6
               .row.control-group
@@ -27,27 +27,27 @@
                   label
                     | E-mail
                     span *
-                  input#email.form-control data-validation-required-message=("Введите свой E-mail") placeholder=("Введите свой E-mail") required="" type="email" /
+                  = email_field_tag :email, "", placeholder: "Введите свой e-mail", class: "form-control", required: "", type: "email"
                   p.help-block
           .row.control-group
             .form-group.col-xs-12.controls
               label
                 | Телефон
                 span *
-              input#phone.form-control data-validation-required-message=("Введите свой номер телефона") placeholder=("Введите свой номер телефона") required="" type="tel" /
+              = phone_field_tag :phone, "", placeholder: "Введите свой телефон", class: "form-control", required: "", type: "tel"
               p.help-block
           .row.control-group
             .form-group.col-xs-12.controls
               label
                 | Сообщение
                 span *
-              textarea#message.form-control data-validation-required-message=("Please enter a message.") placeholder="Введите сообщение" required="" rows="5" 
+              = text_area_tag :text, "", placeholder: "Введите свой e-mail", class: "form-control", required: "", type: "text", rows: "5"
               p.help-block
           br/
           #success
           .row
             .form-group.col-xs-12
-              button.btn.btn-theme-bg.btn-lg type="submit"  Отправить
+              = submit_tag "Отправить", class: "btn btn-theme-bg btn-lg"
       /! contact form
     .col-md-4
       h3.heading Контактная информация

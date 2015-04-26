@@ -1,5 +1,6 @@
 class Category < ActiveRecord::Base
 	validates :title,  presence: true
+	validates :description,  presence: true
 
 	has_many :subcategories, dependent: :destroy
 	belongs_to :section

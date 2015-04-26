@@ -1,5 +1,6 @@
 class Subcategory < ActiveRecord::Base
 	validates :title,  presence: true
+	validates :description,  presence: true
 
 	has_many :prices, dependent: :destroy
 	belongs_to :category

@@ -43,6 +43,6 @@ class SubcategoriesController < ApplicationController
 	private
 
   def subcategory_params
-      params.require(:subcategory).permit(:title, :image, :category_id)
+      params.require(:subcategory).permit(:title, :image, :description, :category_id)
   end
 end

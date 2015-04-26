@@ -7,6 +7,7 @@
 			= form_for(@subcategory, remote: true) do |f|
 				.modal-body
 					= f.text_field :title, class: "form-control"
+					= f.text_area :description, class: "form-control"
 					= f.file_field :image, class: "form-control"
 					= f.collection_select(:category_id, Category.all, :id, :title,class: "form-control")
 					= submit_tag "Подтвердить", class: "btn btn-primary pull-left", :disable_with => "Пожалуйста подождите.." 

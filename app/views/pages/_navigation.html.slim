@@ -19,31 +19,19 @@
           .panel.panel-default
             h4.panel-title
               - if is_admin?
-                = link_to "Новая подкатегория", new_subcategory_path(category_id: category.id), remote: true
-          - category.subcategories.each do |subcategory|
+                = link_to "Новый прайс", new_price_path(category_id: category.id), remote: true
+          - category.prices.each do |price|
             panel-group id = "accordion#{category.id}" aria-multiselectable="true" role="tablist" 
               .panel.panel-default
-                panel-heading id = "subcategoryHeading#{subcategory.id}" role="tab" 
+                panel-heading id = "priceHeading#{price.id}" role="tab" 
                   h4.panel-title
-                    a aria-controls="subcategoryCollapse#{subcategory.id}" aria-expanded="false" data-parent="#accordion#{category.id}" data-toggle="collapse" href="#subcategoryCollapse#{subcategory.id}"  
-                      = subcategory.title
+                    a aria-controls="priceCollapse#{price.id}" aria-expanded="false" data-parent="#accordion#{category.id}" data-toggle="collapse" href="#priceCollapse#{price.id}"  
+                      = link_to price_path(price) do  
+                        = price.title
                       - if is_admin?
-                        = link_to edit_subcategory_path(subcategory), remote: true do
+                        = link_to edit_price_path(price), remote: true do
                           i.fa.fa-pencil
-                        = link_to subcategory_path(subcategory),method: :delete, remote: true do
+                        = link_to price_path(price),method: :delete, remote: true do
                           i.fa.fa-remove
-                .panel-collapse.collapse id = "subcategoryCollapse#{subcategory.id}" aria-labelledby="subcategoryHeading#{subcategory.id}" role="tabpanel" 
-                  .panel-body
-                    - if is_admin?
-                      = link_to "Новый прайс", new_price_path(subcategory_id: subcategory.id), remote: true
-                    ul
-                      - subcategory.prices.each do |price|
-                        li
-                          = link_to price_path(price) do  
-                            = price.title
-                          - if is_admin?
-                            = link_to edit_price_path(price), remote: true do
-                              i.fa.fa-pencil
-                            = link_to price_path(price),method: :delete, remote: true do
-                             i.fa.fa-remove
+
   

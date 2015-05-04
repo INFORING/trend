@@ -11,7 +11,7 @@ class PricesController < ApplicationController
 	def create
 		@price = Price.new(price_params)
 		if @price.save
-			@section = @price.subcategory.category.section
+			@section = @price.category.section
 			respond_to :js
 		end
 	end
@@ -23,13 +23,13 @@ class PricesController < ApplicationController
 
 	def show
 		@price = Price.find(params[:id])
-		@section = @price.subcategory.category.section
+		@section = @price.category.section
 	end
 
 	def update
 		@price = Price.find(params[:id])
 		if @price.update_attributes(price_params)
-			@section = @price.subcategory.category.section
+			@section = @price.category.section
 			respond_to :js
 		end
 	end
@@ -37,7 +37,7 @@ class PricesController < ApplicationController
 	def destroy
 		@price = Price.find(params[:id])
 		@price.destroy
-		@section = @price.subcategory.category.section
+		@section = @price.category.section
 		respond_to :js
 	end
 
@@ -105,7 +105,7 @@ class PricesController < ApplicationController
 	private
 
   def price_params
-    params.require(:price).permit(:title, :description, :subcategory_id, :image, headers_attributes: [:id,:title,:_destroy])
+    params.require(:price).permit(:title, :description, :category_id, :image, headers_attributes: [:id,:title,:_destroy])
   end
 
   def refresh_row_counts

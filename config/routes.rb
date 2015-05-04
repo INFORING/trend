@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
   root 'pages#home'
 
-  resources :subcategories
-
   resources :sections	do
   	resources :categories
 	end

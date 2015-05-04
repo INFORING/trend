@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20150426195206) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "subcategory_id"
+    t.integer  "category_id"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
@@ -56,41 +56,6 @@ ActiveRecord::Schema.define(version: 20150426195206) do
     t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "sqlite_sp_functions", id: false, force: true do |t|
-    t.text "name"
-    t.text "text"
-  end
-
-# Could not dump table "sqlite_stat1" because of following NoMethodError
-#   undefined method `[]' for nil:NilClass
-
-# Could not dump table "sqlite_stat4" because of following NoMethodError
-#   undefined method `[]' for nil:NilClass
-
-  create_table "sqlite_vs_links_names", id: false, force: true do |t|
-    t.text "name"
-    t.text "alias"
-  end
-
-  create_table "sqlite_vs_properties", id: false, force: true do |t|
-    t.text "parentType"
-    t.text "parentName"
-    t.text "propertyName"
-    t.text "propertyValue"
-  end
-
-  create_table "subcategories", force: true do |t|
-    t.string   "title"
-    t.integer  "category_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
-    t.text     "description"
   end
 
 end

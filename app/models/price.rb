@@ -3,7 +3,7 @@ class Price < ActiveRecord::Base
 	validates :title,  presence: true
 	validates :description,  presence: true
 
-	belongs_to :subcategory
+	belongs_to :category
 	has_many :headers, dependent: :destroy
 	has_many :rows, through: :headers
 

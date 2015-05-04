@@ -9,7 +9,7 @@
 					= f.text_field :title, class: "form-control"
 					= f.text_area :description, class: "format-control"
 					= f.file_field :image, class: "form-control"
-					= f.collection_select(:subcategory_id, Subcategory.all, :id, :title, {:selected => @id},class: "form-control")
+					= f.collection_select(:category_id, Category.all, :id, :title, {:selected => @id},class: "form-control")
 					= f.fields_for :headers do |ff|
 							= ff.text_field :title,placeholder: "Название", class: "form-control"
 							= ff.link_to_remove do
